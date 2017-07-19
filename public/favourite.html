@@ -1,11 +1,22 @@
+<style type="text/css">
+	table {
+    border-collapse: collapse;
+	}
+	
+	table, tr, td {
+	    border: 1px solid black;
+	}
+</style>
+
 <div class="text-center">
 	<h1>Favourite Page</h1>
 	
 	<p>{{ message }}</p>
-	
-	<tr ng-repeat="data in datas">
-    	<td>{{data}}</td>
-    	<td><a href="#!detail/{{data.lat}},{{data.lng}}">view</a></td>
-    	<td><a  ng-click="delete(data)" href="">remove</a></td>
-  	</tr>
+		<table style="width:100%">
+			<tr ng-repeat="data in datas">
+		    	<td>{{data}}</td>
+		    	<td><a href="#!detail/{{data.lat}},{{data.lng}}">view</a></td>
+		    	<td><a  ng-click="delete(data)" href="">remove</a></td>
+		  	</tr>
+	 	</table>
 </div>
