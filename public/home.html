@@ -1,0 +1,91 @@
+<style>
+	#map { 
+	    height: 400px;
+	    margin: 20px 0;
+	    border-radius: 5px;
+	    border: 1px solid silver;
+	}
+</style>
+
+<div class="text-center">
+	<h1>Search your destination.</h1>
+</div>
+
+
+<div class="container" ng-app="myApp" ng-controller="newPlaceController">
+	
+    <form name="searchForm" novalidate 
+    ng-submit="search()">
+        <div class="input-group">
+            <input name="place" type="text" class="form-control" 
+            ng-model="searchPlace" required autofocus />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" 
+                ng-disabled="searchForm.$invalid">Search</button>
+            </span>
+        </div>
+    </form>
+        
+    <div id="map"></div>
+      
+    <!--<form name="resForm" class="form-horizontal" novalidate 
+    ng-submit="send()">
+        <div class="form-group">
+            <label for="resName" class="col-xs-2 control-label">Name</label>
+            <div class="col-xs-10">
+                <input name="resName" type="text" class="form-control" 
+                ng-model="place.name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+            <div class="col-xs-10">
+                <input name="resLat" type="number" class="form-control" 
+                ng-model="place.lat" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLng" class="col-xs-2 control-label">Longitude</label>
+            <div class="col-xs-10">
+                <input name="resLng" type="number" class="form-control" 
+                ng-model="place.lng" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-success" 
+                ng-disabled="resForm.$invalid">Confirm</button>
+            </div>
+        </div>
+    </form>-->
+    
+    <div class="container" style="margin-bottom:100px;">
+        <h1>{{search_location}}</h1>
+        
+        <div class="row">
+        <div class="col-md-2" ng-repeat="weather in weathers.forecast.forecastday" style="border: 1px solid grey">
+          <div class="col-md-12 col-md-offset-2">{{weather.date}}</div>
+          <img class="col-md-12" src={{weather.day.condition.icon}} style="border: 1px solid grey; margin-bottom:10px;"></img>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="http://www.freeiconspng.com/uploads/temperature-icon-png-18.png" style="width:30px;height:30px;"/>{{weather.day.avgtemp_c}}&#8451
+            </div>
+            <div class="col-md-6">
+              <img src="https://cdn3.iconfinder.com/data/icons/weather-16/256/High_Wind-512.png" style="width:30px;height:30px;"/>{{weather.day.maxwind_kph}}kph
+            </div>
+          </div>
+        </div>
+    </div>
+    
+  </div>
+  
+  <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button class="btn btn-success" 
+            ng-disabled="resForm.$invalid">Favourite</button>
+        </div>
+    </div>
+  </form>
+    
+</div>

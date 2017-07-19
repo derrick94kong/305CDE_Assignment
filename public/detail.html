@@ -1,0 +1,24 @@
+<div class="jumbotron text-center">
+	<h1>Contact Page</h1>
+	
+	<p>{{ message }}</p>
+	
+	<div class="container" style="margin-bottom:100px;">
+        <h1>{{search_location}}</h1>
+        
+        <div class="row">
+        <div class="col-md-2" ng-repeat="review in reviews.forecast.forecastday" style="border: 1px solid grey">
+          <div class="col-md-12 col-md-offset-2">{{review.date}}</div>
+          <img class="col-md-12" src={{review.day.condition.icon}} style="border: 1px solid grey; margin-bottom:10px;"></img>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="http://www.freeiconspng.com/uploads/temperature-icon-png-18.png" style="width:30px;height:30px;"/>{{review.day.avgtemp_c}}&#8451
+            </div>
+            <div class="col-md-6">
+              <img src="https://cdn3.iconfinder.com/data/icons/weather-16/256/High_Wind-512.png" style="width:30px;height:30px;"/>{{review.day.maxwind_kph}}kph
+            </div>
+          </div>
+        </div>
+    </div>
+	
+</div>

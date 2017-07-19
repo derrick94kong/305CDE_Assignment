@@ -1,0 +1,11 @@
+<div class="text-center">
+	<h1>Favourite Page</h1>
+	
+	<p>{{ message }}</p>
+	
+	<tr ng-repeat="data in datas">
+    	<td>{{data}}</td>
+    	<td><a href="#!detail/{{data.lat}},{{data.lng}}">view</a></td>
+    	<td><a  ng-click="delete(data)" href="">remove</a></td>
+  	</tr>
+</div>
